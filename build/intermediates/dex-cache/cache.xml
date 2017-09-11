@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-26.0.0-alpha1_3312ff82efb12eec4646415596d1d55d9983e9e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-26.0.0-alpha1_3c929c44bbd1e1b95ca7a0d20a3d81ed24b69578\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-26.0.0-alpha1_709a7f741998eb3b24a458d345ea5362e13e8ba3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-fragment\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-26.0.0-alpha1_cdd3fc94977ab43f299f59de875e78ec0cdf4cb2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-26.0.0-alpha1_d8573d0bfdb19409a106ca117592391967329d57\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-26.0.0-alpha1_6938857990de4e12166fbea995df19f845e9f9d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-26.0.0-alpha1_44e7b412ddf52ef2e02c44847aee60b3628e8c95\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-26.0.0-alpha1_a595f27c418e43cf6179b7ad1caf9328a3d7e53c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.0-alpha1_6fa30c1e5fa959ab963c112d2aba980743c8e268\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-26.0.0-alpha1_e948ad81656e233430387fcccc1d004839e71b46\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f466319ad51d87d8bf0fff64707fd49d42d6e3ae">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cbf7207d84e635255f36b98d2c81fb9440dec511\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\BizBuzzz\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f9bfa02b3985ea85f496385b09d898f0f0c45104">
+        <dex dex="F:\BizBuzzz\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ef044cffb40ebca77e171a01166d386bf53b7fbf\classes.dex" />
+    </item>
+
+</items>

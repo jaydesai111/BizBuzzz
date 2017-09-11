@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+
+    <dimen name="et_password_marginTop">20dp</dimen>
+    <dimen name="view_marginTop">5dp</dimen>
+    <dimen name="ll_signup_view_height">1dp</dimen>
+    <dimen name="signup_button_height">44dp</dimen>
+
+</resources>
