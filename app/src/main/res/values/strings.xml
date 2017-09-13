@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BizBuzzz</string>
+    <string name="drawer_open"></string>
+    <string name="drawer_close"></string>
 </resources>
