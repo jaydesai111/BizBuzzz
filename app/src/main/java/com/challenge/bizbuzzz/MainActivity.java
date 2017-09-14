@@ -1,6 +1,8 @@
 package com.challenge.bizbuzzz;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.challenge.bizbuzzz.DialogFragment.SavePhotoDialogFragment;
+import com.challenge.bizbuzzz.Fragment.SavePhotoListFragment;
 import com.challenge.bizbuzzz.Utility.NavigationDrawerUtility;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+
+        SavePhotoListFragment savePhotoListFragment = new SavePhotoListFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_frame, savePhotoListFragment, "SavePhotoListFragment");
+        ft.commit();
 
 
     }

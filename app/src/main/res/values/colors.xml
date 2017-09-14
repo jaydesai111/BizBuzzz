@@ -8,5 +8,6 @@
     <color name="black">#000000</color>
     <color name="lightWhite">#99FFFFFF</color>
     <color name="white">#FFFFFF</color>
-    <color name="divi_green">#1BA89F</color>
+    <color name="green">#1BA89F</color>
+    <color name="hint_lightGray">#A1A1A1</color>
 </resources>

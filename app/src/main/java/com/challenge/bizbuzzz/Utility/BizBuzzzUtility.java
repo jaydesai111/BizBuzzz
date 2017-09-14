@@ -1,9 +1,11 @@
 package com.challenge.bizbuzzz.Utility;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 import java.io.File;
@@ -15,6 +17,9 @@ import java.util.Locale;
  */
 
 public class BizBuzzzUtility {
+
+    public static final String STORAGE_PATH_UPLOADS = "uploads/";
+    public static final String DATABASE_PATH_UPLOADS = "uploads";
     private static final String ImagaeFolderName = "BizBuzzz";
     public static boolean isDeviceSupportCamera(Context context) { //Checking device has camera hardware or not
         if (context.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
@@ -55,5 +60,11 @@ public class BizBuzzzUtility {
 
     public static void showToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+    }
+
+    public static String getFileExtension(Context context,Uri uri) {
+        ContentResolver cR = context.getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 }
