@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.challenge.bizbuzzz.Adapter.SavePhotoAdapter;
+import com.challenge.bizbuzzz.CallBack.InsertItemCallBack;
+import com.challenge.bizbuzzz.CallBack.RemoveItemCallBack;
 import com.challenge.bizbuzzz.Pojo.Upload;
 import com.challenge.bizbuzzz.R;
 import com.challenge.bizbuzzz.Utility.BizBuzzzUtility;
@@ -26,8 +29,9 @@ import java.util.List;
  * Created by Guidezie on 14-09-2017.
  */
 
-public class SavePhotoListFragment extends Fragment {
+public class SavePhotoListFragment extends Fragment implements InsertItemCallBack,RemoveItemCallBack {
     View view;
+    private String TAG = "SAVEPHOTOLISTFRAGMENT";
     private RecyclerView recyclerView;
 
     //adapter object
@@ -77,7 +81,7 @@ public class SavePhotoListFragment extends Fragment {
                     uploads.add(upload);
                 }
                 //creating adapter
-                adapter = new SavePhotoAdapter(getActivity(), uploads);
+                adapter = new SavePhotoAdapter(getActivity(), uploads,SavePhotoListFragment.this,SavePhotoListFragment.this);
 
                 //adding adapter to recyclerview
                 recyclerView.setAdapter(adapter);
@@ -88,6 +92,18 @@ public class SavePhotoListFragment extends Fragment {
                 progressDialog.dismiss();
             }
         });
+
+    }
+
+    @Override
+    public void onItemInserted(int position) {
+        Log.i(TAG,"this is inside OnIteamInserted "+position);
+    }
+
+    @Override
+    public void onItemRemove(int position) {
+        Log.i(TAG,"this is inside OnIteamRemove "+position);
+
 
     }
 }

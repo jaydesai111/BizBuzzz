@@ -6,28 +6,33 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.challenge.bizbuzzz.CallBack.InsertItemCallBack;
+import com.challenge.bizbuzzz.CallBack.RemoveItemCallBack;
 import com.challenge.bizbuzzz.Pojo.Upload;
 import com.challenge.bizbuzzz.R;
 
 import java.util.List;
 
-/**
- * Created by Guidezie on 14-09-2017.
- */
+
 
 public class SavePhotoAdapter  extends RecyclerView.Adapter<SavePhotoAdapter.ViewHolder> {
 
     private Context context;
     private List<Upload> uploads;
     private String TAG = "SAVEPHOTOADAPTER";
+    InsertItemCallBack insertItemCallBack;
+    RemoveItemCallBack removeItemCallBack;
 
-    public SavePhotoAdapter(Context context, List<Upload> uploads) {
+    public SavePhotoAdapter(Context context, List<Upload> uploads,InsertItemCallBack insertItemCallBack,RemoveItemCallBack removeItemCallBack) {
         this.uploads = uploads;
         this.context = context;
+        this.insertItemCallBack = insertItemCallBack;
+        this.removeItemCallBack = removeItemCallBack;
     }
 
     @Override
@@ -53,16 +58,41 @@ public class SavePhotoAdapter  extends RecyclerView.Adapter<SavePhotoAdapter.Vie
         return uploads.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView tv_name;
         public ImageView iv_photo;
+        public Button bt_insert;
+        public Button bt_remove;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             tv_name =  itemView.findViewById(R.id.tv_name);
             iv_photo =  itemView.findViewById(R.id.iv_photo);
+            bt_insert = itemView.findViewById(R.id.bt_insert);
+            bt_remove = itemView.findViewById(R.id.bt_remove);
+            bt_insert.setOnClickListener((View.OnClickListener) this);
+            bt_remove.setOnClickListener((View.OnClickListener) this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            switch (view.getId())
+            {
+                case R.id.bt_insert:
+                    insertItemCallBack.onItemInserted(getAdapterPosition());
+                    break;
+                case R.id.bt_remove:
+                    removeItemCallBack.onItemRemove(getAdapterPosition());
+                    break;
+            }
+
         }
     }
+
 }

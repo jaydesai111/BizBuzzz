@@ -28,6 +28,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@id/tv_name" />
+            <Button
+                android:id="@+id/bt_remove"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/iv_photo"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:text="remove"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_corner_red_button"
+                />
+            <Button
+                android:id="@+id/bt_insert"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/iv_photo"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:text="insert"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_corner_navyblue_button"
+                />
+
 
         </RelativeLayout>
 
