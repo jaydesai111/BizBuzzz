@@ -16,14 +16,17 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.challenge.bizbuzzz.Fragment.SavePhotoListFragment;
 import com.challenge.bizbuzzz.Pojo.Upload;
 import com.challenge.bizbuzzz.R;
 import com.challenge.bizbuzzz.Utility.BizBuzzzUtility;
@@ -44,11 +47,13 @@ public class SavePhotoDialogFragment extends DialogFragment implements View.OnCl
     private Uri fileUri;
     String picturePath;
     EditText et_name;
-    ImageView iv_photo;
+    ImageView iv_photo,iv_back;
+    TextView tapToAdd;
     private Uri filePath;
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
     private final int PERMISSION_REQUEST_CODE=1;
+    int position;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -59,14 +64,19 @@ public class SavePhotoDialogFragment extends DialogFragment implements View.OnCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.dialog_fragment_savephoto, container, false);
+        position = getArguments().getInt("position");
         bt_upload = view.findViewById(R.id.bt_upload);
-        iv_photo = view.findViewById(R.id.iv_photo);
+        iv_back = view.findViewById(R.id.iv_back);
         et_name = view.findViewById(R.id.et_name);
+        tapToAdd = view.findViewById(R.id.tapToAdd);
+        iv_photo = view.findViewById(R.id.iv_photo);
         storageReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference(BizBuzzzUtility.DATABASE_PATH_UPLOADS);
+        iv_back.setOnClickListener(this);
+        tapToAdd.setOnClickListener(this);
         iv_photo.setOnClickListener(this);
         bt_upload.setOnClickListener(this);
-       checkPermission();
+        checkPermission();
 
         return view;
     }
@@ -76,12 +86,24 @@ public class SavePhotoDialogFragment extends DialogFragment implements View.OnCl
         switch (view.getId())
         {
             case R.id.bt_upload:
-                uploadFile();
+                Log.i("SavaPhotoDialog","this is value of internet "+BizBuzzzUtility.isConnected());
+                if(BizBuzzzUtility.isConnected()) {
+                    if(validate()) {
+                        uploadFile();
+                    }
+                }
+                else
+                {
+                    BizBuzzzUtility.displayMessageAlert("No internet",getActivity());
+                }
                 break;
             case R.id.iv_photo:
                 if(checkPermission()) {
                     SelectImage();
                 }
+                break;
+            case R.id.iv_back:
+                dismiss();
                 break;
         }
     }
@@ -272,6 +294,12 @@ public class SavePhotoDialogFragment extends DialogFragment implements View.OnCl
                             //adding an upload to firebase database
                             String uploadId = mDatabase.push().getKey();
                             mDatabase.child(uploadId).setValue(upload);
+                            upload.setKey(uploadId);
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("uploads",upload);
+                            bundle.putSerializable("position",position);
+                            getTargetFragment().onActivityResult(getTargetRequestCode(), SavePhotoListFragment.SAVEPHOTOCALLBACK,getActivity().getIntent().putExtra("data",bundle));
+                            dismiss();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -292,6 +320,21 @@ public class SavePhotoDialogFragment extends DialogFragment implements View.OnCl
         } else {
             //display an error if no file is selected
         }
+    }
+
+    public boolean validate()
+    {
+        if(filePath==null)
+        {
+            BizBuzzzUtility.displayMessageAlert("please select photo",getActivity());
+            return false;
+        }
+        else if(et_name.getText().toString().contentEquals(""))
+        {
+            et_name.setError("enter name");
+            return false;
+        }
+        return true;
     }
 
 }

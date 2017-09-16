@@ -1,7 +1,9 @@
 package com.challenge.bizbuzzz.Utility;
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
@@ -9,6 +11,8 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -66,5 +70,38 @@ public class BizBuzzzUtility {
         ContentResolver cR = context.getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    public static boolean isInternetAvailable() {
+        try {
+            final InetAddress address = InetAddress.getByName("www.google.com");
+            return !address.equals("");
+        } catch (UnknownHostException e) {
+            // Log error
+        }
+        return false;
+
+    }
+    public static boolean isConnected()
+    {
+        try {
+            String command = "ping -c 1 google.com";
+            return (Runtime.getRuntime().exec (command).waitFor() == 0);
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public static void displayMessageAlert(String Message, Context c) {
+        try {
+            new AlertDialog.Builder(c)
+                    .setMessage(Message)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+
+                        }
+                    }).show();
+        } catch (Exception e) {
+
+        }
     }
 }

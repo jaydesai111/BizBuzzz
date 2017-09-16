@@ -7,13 +7,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.challenge.bizbuzzz.DialogFragment.SavePhotoDialogFragment;
 import com.challenge.bizbuzzz.Fragment.SavePhotoListFragment;
 import com.challenge.bizbuzzz.Utility.NavigationDrawerUtility;
 
@@ -24,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
     private String TAG = "MAINACTIVITY";
+    SavePhotoListFragment savePhotoListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
 
+
     }
 
     public void setUpToolBar()
@@ -77,12 +77,15 @@ public class MainActivity extends AppCompatActivity {
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
         mDrawerLayout.closeDrawer(mDrawerList);
-        Log.i(TAG,"this is selected Item "+position);
         switch (position)
         {
             case NavigationDrawerUtility.SAVEPHOTO:
-                SavePhotoDialogFragment savePhotoDialogFragment = new SavePhotoDialogFragment();
-                savePhotoDialogFragment.show(MainActivity.this.getSupportFragmentManager(),"SavePhotoDialogFragment");
+                if(savePhotoListFragment==null)
+                {
+                    savePhotoListFragment = (SavePhotoListFragment) getSupportFragmentManager().findFragmentByTag("SavePhotoListFragment");
+
+                }
+                savePhotoListFragment.openSavePhotoDialog(0);
 
         }
     }
